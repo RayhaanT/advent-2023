@@ -68,7 +68,8 @@ func main() {
     defer file.Close()
 
     scanner := bufio.NewScanner(file)
-    var sum int = 0
+    var p1sum int = 0
+    var p2sum int = 0
     for scanner.Scan() {
         var line string = scanner.Text()
         var nums, indices = digits(line)
@@ -83,6 +84,8 @@ func main() {
             lasti = indices[i]
         }
 
+        p1sum += nums[0]*10 + last
+
         var first = nums[0]
         if (fi < indices[0] && fi != -1) || first == -1 {
             first = fn
@@ -91,10 +94,11 @@ func main() {
             last = ln
         }
 
-        sum += first*10 + last
+        p2sum += first*10 + last
     }
 
-    fmt.Printf("%d\n", sum)
+    fmt.Printf("Part 1: %d\n", p1sum)
+    fmt.Printf("Part 2: %d\n", p2sum)
 
     if err := scanner.Err(); err != nil {
         panic(err)
