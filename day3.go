@@ -18,14 +18,13 @@ func isdigit(c byte) (int) {
     return -1
 }
 
-func main() {
+func day3(scanner *bufio.Scanner) {
     file, err := os.Open("inputs/day3.txt")
     if err != nil {
         panic(err)
     }
     defer file.Close()
 
-    scanner := bufio.NewScanner(file)
     lines := make([]string, 0)
     x := 0
     y := 0

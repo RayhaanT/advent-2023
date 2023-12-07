@@ -7,7 +7,7 @@ import (
     "strings"
 )
 
-func digits(line string) ([]int, []int) {
+func parseDigits(line string) ([]int, []int) {
     var nums = make([]int, len(line))
     var indices = make([]int, len(line))
     var ind = 0
@@ -26,7 +26,7 @@ func digits(line string) ([]int, []int) {
     return nums, indices
 }
 
-func numbers(line string) (int, int, int, int) {
+func parseNumbers(line string) (int, int, int, int) {
     var names = []string{
         "one",
         "two",
@@ -60,20 +60,19 @@ func numbers(line string) (int, int, int, int) {
     return firsti, firstn, lasti, lastn
 }
 
-func main() {
+func day1(scanner *bufio.Scanner) {
     file, err := os.Open("inputs/day1.txt")
     if err != nil {
         panic(err)
     }
     defer file.Close()
 
-    scanner := bufio.NewScanner(file)
     var p1sum int = 0
     var p2sum int = 0
     for scanner.Scan() {
         var line string = scanner.Text()
-        var nums, indices = digits(line)
-        var fi, fn, li, ln = numbers(line)
+        var nums, indices = parseDigits(line)
+        var fi, fn, li, ln = parseNumbers(line)
         var last = 0
         var lasti = -1
         for i := 0; i < len(nums); i++ {

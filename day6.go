@@ -5,35 +5,26 @@ import (
     "fmt"
     "os"
     "strings"
-    "strconv"
     "math"
 )
 
-func stoi(s string) (int) {
-    n, err := strconv.Atoi(s)
-    if err != nil {
-        panic(err)
-    }
-    return n
-}
-
-func off10(n float64) (int) {
+func off10(n int) (int) {
     if n == 0 {
         return 1
     }
-    return int(math.Pow10(int(math.Ceil(math.Log10(n)))))
+    return int(math.Pow10(digits(int(n))))
 } 
 
 func concatNum(lst []int) (int) {
     c := 0
     for _, t := range lst {
-        c *= off10(float64(t))
+        c *= off10(t)
         c += t
     }
     return c
 }
 
-func qroot(a float64, b float64, c float64) (int, int) {
+func qroot(a, b, c float64) (int, int) {
     det := b*b - 4*a*c
     if det < 0 {
         return -1, -1
@@ -67,14 +58,13 @@ func parseLine(line string) ([]int) {
     return data
 }
 
-func main() {
+func day6(scanner *bufio.Scanner) {
     file, err := os.Open("inputs/day6.txt")
     if err != nil {
         panic(err)
     }
     defer file.Close()
 
-    scanner := bufio.NewScanner(file)
     scanner.Scan()
     times := parseLine(scanner.Text())
     scanner.Scan()
@@ -94,8 +84,4 @@ func main() {
 
     fmt.Printf("Part 1: %d\n", p1)
     fmt.Printf("Part 2: %d\n", p2)
-
-    if err := scanner.Err(); err != nil {
-        panic(err)
-    }
 }

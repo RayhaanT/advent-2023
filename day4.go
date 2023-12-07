@@ -17,7 +17,7 @@ func pow2(n int) (int) {
     return out
 }
 
-func main() {
+func day4(scanner *bufio.Scanner) {
     file, err := os.Open("inputs/day4.txt")
     if err != nil {
         panic(err)
@@ -29,7 +29,6 @@ func main() {
     copies = append(copies, 0)
     index := 0
 
-    scanner := bufio.NewScanner(file)
     for scanner.Scan() {
         var line string = scanner.Text()
         copies[index] += 1

@@ -35,7 +35,7 @@ func parsepull(pull string) (int, int, int) {
     return red, green, blue
 }
 
-func main() {
+func day2(scanner *bufio.Scanner) {
     file, err := os.Open("inputs/day2.txt")
     if err != nil {
         panic(err)
@@ -45,7 +45,6 @@ func main() {
     p1sum := 0
     p2sum := 0
     index := 0
-    scanner := bufio.NewScanner(file)
     for scanner.Scan() {
         index += 1
         var line string = scanner.Text()

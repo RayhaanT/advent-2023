@@ -5,21 +5,12 @@ import (
     "fmt"
     "os"
     "strings"
-    "strconv"
 )
 
 type Interval struct {
     dest int
     source int
     length int
-}
-
-func stoi(s string) (int) {
-    n, err := strconv.Atoi(s)
-    if err != nil {
-        panic(err)
-    }
-    return n
 }
 
 func applyMap(m []Interval, n int) (int) {
@@ -60,14 +51,13 @@ func mapInterval(m []Interval, live []Interval) ([]Interval) {
     return mapped
 }
 
-func main() {
+func day5(scanner *bufio.Scanner) {
     file, err := os.Open("inputs/day5.txt")
     if err != nil {
         panic(err)
     }
     defer file.Close()
 
-    scanner := bufio.NewScanner(file)
     seeds := make([]int, 0)
     maps := make([][]Interval, 0)
     index := 0
