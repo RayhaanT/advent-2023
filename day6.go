@@ -57,6 +57,16 @@ func qroot(a float64, b float64, c float64) (int, int) {
     return int(r1), int(r2)
 }
 
+func parseLine(line string) ([]int) {
+    data := make([]int, 0)
+    list := strings.Split(strings.Split(line, ":")[1], " ")
+    for _, s := range list {
+        if s == "" { continue }
+        data = append(data, stoi(s))
+    }
+    return data
+}
+
 func main() {
     file, err := os.Open("inputs/day6.txt")
     if err != nil {
@@ -65,29 +75,10 @@ func main() {
     defer file.Close()
 
     scanner := bufio.NewScanner(file)
-    first := true
-    times := make([]int, 0)
-    records := make([]int, 0)
-    for scanner.Scan() {
-        var line string = scanner.Text()
-        list := strings.Split(strings.Split(line, ":")[1], " ")
-        if first {
-            first = false
-            for _, s := range list {
-                if s == "" {
-                    continue
-                }
-                times = append(times, stoi(s))
-            }
-        } else {
-            for _, s := range list {
-                if s == "" {
-                    continue
-                }
-                records = append(records, stoi(s))
-            }
-        }
-    }
+    scanner.Scan()
+    times := parseLine(scanner.Text())
+    scanner.Scan()
+    records := parseLine(scanner.Text())
 
     p1 := 1
     for i := 0; i < len(records); i++ {
