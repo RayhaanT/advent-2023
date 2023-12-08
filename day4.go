@@ -3,7 +3,6 @@ package main
 import (
     "bufio"
     "fmt"
-    "os"
     "strings"
     "strconv"
 )
@@ -18,12 +17,6 @@ func pow2(n int) (int) {
 }
 
 func day4(scanner *bufio.Scanner) {
-    file, err := os.Open("inputs/day4.txt")
-    if err != nil {
-        panic(err)
-    }
-    defer file.Close()
-
     p1sum := 0
     copies := make([]int, 0)
     copies = append(copies, 0)

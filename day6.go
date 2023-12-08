@@ -3,7 +3,6 @@ package main
 import (
     "bufio"
     "fmt"
-    "os"
     "strings"
     "math"
 )
@@ -59,12 +58,6 @@ func parseLine(line string) ([]int) {
 }
 
 func day6(scanner *bufio.Scanner) {
-    file, err := os.Open("inputs/day6.txt")
-    if err != nil {
-        panic(err)
-    }
-    defer file.Close()
-
     scanner.Scan()
     times := parseLine(scanner.Text())
     scanner.Scan()

@@ -3,7 +3,6 @@ package main
 import (
     "bufio"
     "fmt"
-    "os"
     "strings"
 )
 
@@ -52,12 +51,6 @@ func mapInterval(m []Interval, live []Interval) ([]Interval) {
 }
 
 func day5(scanner *bufio.Scanner) {
-    file, err := os.Open("inputs/day5.txt")
-    if err != nil {
-        panic(err)
-    }
-    defer file.Close()
-
     seeds := make([]int, 0)
     maps := make([][]Interval, 0)
     index := 0

@@ -3,7 +3,6 @@ package main
 import (
     "bufio"
     "fmt"
-    "os"
 )
 
 type Coord struct {
@@ -19,12 +18,6 @@ func isdigit(c byte) (int) {
 }
 
 func day3(scanner *bufio.Scanner) {
-    file, err := os.Open("inputs/day3.txt")
-    if err != nil {
-        panic(err)
-    }
-    defer file.Close()
-
     lines := make([]string, 0)
     x := 0
     y := 0

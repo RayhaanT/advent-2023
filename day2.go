@@ -3,7 +3,6 @@ package main
 import (
     "bufio"
     "fmt"
-    "os"
     "strings"
     "strconv"
 )
@@ -36,12 +35,6 @@ func parsepull(pull string) (int, int, int) {
 }
 
 func day2(scanner *bufio.Scanner) {
-    file, err := os.Open("inputs/day2.txt")
-    if err != nil {
-        panic(err)
-    }
-    defer file.Close()
-
     p1sum := 0
     p2sum := 0
     index := 0

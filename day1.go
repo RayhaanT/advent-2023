@@ -3,7 +3,6 @@ package main
 import (
     "bufio"
     "fmt"
-    "os"
     "strings"
 )
 
@@ -61,12 +60,6 @@ func parseNumbers(line string) (int, int, int, int) {
 }
 
 func day1(scanner *bufio.Scanner) {
-    file, err := os.Open("inputs/day1.txt")
-    if err != nil {
-        panic(err)
-    }
-    defer file.Close()
-
     var p1sum int = 0
     var p2sum int = 0
     for scanner.Scan() {
