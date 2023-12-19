@@ -6,7 +6,8 @@ import (
 )
 
 type Coord struct {
-    a, b interface{}
+    x int
+    y int
 }
 
 func isdigit(c byte) (int) {
