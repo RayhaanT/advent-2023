@@ -8,8 +8,8 @@ import (
 
 func extrapolate(array []int) (int, int) {
     zero := true
-    for i := 0; i < len(array); i++ {
-        if array[i] != 0 {
+    for _, n := range array {
+        if n != 0 {
             zero = false
         }
     }
