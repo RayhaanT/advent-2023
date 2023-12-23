@@ -37,7 +37,7 @@ func main() {
         case 13: day13(scanner)
         case 14: day14(scanner)
         case 15: day15(scanner)
-        // case 16: day16(scanner)
+        case 16: day16(scanner)
         // case 17: day17(scanner)
         // case 18: day18(scanner)
         // case 19: day19(scanner)
