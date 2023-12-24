@@ -33,7 +33,7 @@ func main() {
         case 9: day9(scanner)
         case 10: day10(scanner)
         case 11: day11(scanner)
-        // case 12: day12(scanner)
+        case 12: day12(scanner)
         case 13: day13(scanner)
         case 14: day14(scanner)
         case 15: day15(scanner)

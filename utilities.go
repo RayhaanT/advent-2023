@@ -14,6 +14,10 @@ func stoi(s string) (int) {
     return n
 }
 
+func tostring(i int) string {
+    return strconv.Itoa(i)
+}
+
 func digits(n int) (int) {
     if n == 0 {
         return 1
