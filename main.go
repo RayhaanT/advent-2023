@@ -44,7 +44,7 @@ func main() {
         // case 20: day20(scanner)
         // case 21: day21(scanner)
         // case 22: day22(scanner)
-        // case 23: day23(scanner)
+        case 23: day23(scanner)
         // case 24: day24(scanner)
         // case 25: day25(scanner)
         default: panic("Not implemented")
